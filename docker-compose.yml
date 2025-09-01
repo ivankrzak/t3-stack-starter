@@ -1,0 +1,15 @@
+services:
+  acme:
+    container_name: acme
+    image: postgres:17.1-alpine
+    restart: always
+    ports:
+      - "49709:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: acme
+    volumes:
+      - acme-volume:/var/lib/postgresql/data
+volumes:
+  acme-volume:
